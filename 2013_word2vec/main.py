@@ -4,7 +4,6 @@ import torch
 from data import SkipGramSampler
 from model import SkipGramModel
 
-
 if __name__ == "__main__":
     sampler = SkipGramSampler("trainset.txt", context_size=2)
     model = SkipGramModel(len(sampler.vocab))

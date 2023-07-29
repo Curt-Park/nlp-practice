@@ -1,6 +1,6 @@
 """Data handler for skip-gram model."""
 
-from typing import Dict, List, Tuple, Set
+from typing import Dict, List, Set, Tuple
 
 import nltk
 import numpy as np
@@ -88,9 +88,10 @@ class SkipGramSampler:
         data = np.array(data)
         self.words, self.contexts = data[:, 0], data[:, 1]
         self.num_words = len(self.idx_to_word)
-        dist = np.array(
-            [self.vocab[self.idx_to_word[i]] for i in range(len(self.vocab))]
-        ) ** 0.75
+        dist = (
+            np.array([self.vocab[self.idx_to_word[i]] for i in range(len(self.vocab))])
+            ** 0.75
+        )
         self.dist = dist / np.sum(dist)
 
     def sample(

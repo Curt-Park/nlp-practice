@@ -16,3 +16,4 @@ make setup-dev  # install packages for development (optional)
 ## References
 - https://github.com/graykode/nlp-tutorial
 - https://github.com/PengFoo/word2vec-pytorch
+- https://github.com/dthiagarajan/word2vec-pytorch

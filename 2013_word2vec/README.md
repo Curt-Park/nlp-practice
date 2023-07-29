@@ -4,3 +4,17 @@
 - Objective: Improving both the quality of the vectors and the training speed.
 - Key Ideas:Skip-gram Model with negative sampling and subsampling of frequent words.
 - Reference: https://github.com/PengFoo/word2vec-pytorch/
+
+## Prerequsites
+```bash
+pip install -r requirements.txt
+```
+
+## How to run
+```bash
+python main.py
+```
+
+## References
+- https://github.com/PengFoo/word2vec-pytorch
+- https://github.com/dthiagarajan/word2vec-pytorch

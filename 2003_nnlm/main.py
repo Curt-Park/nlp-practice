@@ -9,11 +9,11 @@
 - Reference: https://github.com/graykode/nlp-tutorial/blob/master/1-1.NNLM/NNLM.py
 """
 
+from typing import Dict, List, Tuple
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
-
-from typing import Dict, List, Tuple
 
 
 def make_batch(

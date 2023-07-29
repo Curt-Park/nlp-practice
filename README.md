@@ -10,7 +10,9 @@ make setup-dev  # install packages for development (optional)
 
 ## Contents
 - [2003] [NNLM (Neural Network Language Model)](2003_nnlm)
+- [2013] [Word2Vec](2013_word2vec)
 
 
 ## References
 - https://github.com/graykode/nlp-tutorial
+- https://github.com/PengFoo/word2vec-pytorch

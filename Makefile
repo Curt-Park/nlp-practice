@@ -15,4 +15,4 @@ format:
 	isort .
 
 lint:
-	pytest src --flake8 --pylint --mypy
+	pytest . --flake8 --pylint --mypy

@@ -119,7 +119,11 @@ class PositionalEncoding(nn.Module):
 
 
 if __name__ == "__main__":
-    sentences = ["ich mochte ein bier PAD", "SOS i want a beer", "i want a beer EOS"]
+    sentences = [
+        "SOS ich mochte ein bier EOS",
+        "SOS i want a beer",
+        "i want a beer EOS",
+    ]
 
     src_vocab = {
         "PAD": 0,
@@ -150,15 +154,14 @@ if __name__ == "__main__":
     enc_inputs, dec_inputs, target_batch = make_batch(src_vocab, tgt_vocab, sentences)
 
     # train
-    target_batch = target_batch.squeeze()
-    for epoch in range(50):
+    for epoch in range(20):
         optimizer.zero_grad()
         outputs = model(enc_inputs, dec_inputs)
-        outputs = outputs.squeeze()
-        loss = criterion(outputs, target_batch.contiguous().view(-1))
+        outputs = outputs.permute(1, 0, 2).view(-1, tgt_vocab_size)
+        loss = criterion(outputs, target_batch.view(-1))
         loss.backward()
         optimizer.step()
-        print(f"Epoch {epoch+1}\tLoss: {loss.item():.6f}")
+        print(f"Epoch {epoch+1:2d}\tLoss: {loss.item():.6f}")
 
     # test
     dec_input = torch.LongTensor([[5]])
